@@ -35,27 +35,18 @@ embox2dTest_garmon.prototype.setup = function() {
     var right00shape = createPolygonShape([new b2Vec2(3, 1), new b2Vec2(5, 1), new b2Vec2(5, 3), new b2Vec2(3, 3)]);
     var right00fixDef = new b2FixtureDef();
     right00fixDef.set_shape(right00shape);
-    right00fixDef.set_density(1.0);
-    right00fixDef.set_friction(0.1);
-
     this.rightBody.CreateFixture(right00fixDef);
 
     var right01shape = createPolygonShape([new b2Vec2(3, 0), new b2Vec2(5, 0), new b2Vec2(5, 1), new b2Vec2(3, 1)]);
     var right01fixDef = new b2FixtureDef();
     right01fixDef.set_shape(right01shape);
-    right01fixDef.set_density(10.0);
-    right01fixDef.set_friction(0.1);
-
     this.rightBody.CreateFixture(right01fixDef);
 
     var right02shape = createPolygonShape([new b2Vec2(2, 1.03), new b2Vec2(3, 1.03), new b2Vec2(3, 1.97), new b2Vec2(2, 1.97)]);
     var right02fixDef = new b2FixtureDef();
     right02fixDef.set_shape(right02shape);
-    right02fixDef.set_density(1.0);
-    right02fixDef.set_friction(0.1);
-
     this.rightBody.CreateFixture(right02fixDef);
-    this.rightBody.ResetMassData();
+
     this.rightBody.SetLinearVelocity(new b2Vec2(-2, 0));
 }
 
