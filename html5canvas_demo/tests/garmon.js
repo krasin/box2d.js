@@ -61,7 +61,6 @@ embox2dTest_garmon.prototype.setup = function() {
 
 embox2dTest_garmon.prototype.step = function() {
     var x = this.rightBody.GetPosition().get_x();
-    console.log(x);
     if (x < -3.9) {
 	this.rightBody.SetLinearVelocity(new b2Vec2(2, 0));
     }
