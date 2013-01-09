@@ -15,24 +15,47 @@ embox2dTest_garmon.prototype.setup = function() {
     var ground = world.CreateBody(new b2BodyDef());
     ground.CreateFixture(shape, 0.0);
 
-    shape = new b2PolygonShape();
-    shape.SetAsBox(1, 1.5, new b2Vec2(-3, 1.5), 0);
-    ground.CreateFixture(shape, 0.0);
 
-    var garmonShape = new b2PolygonShape();
-    garmonShape.SetAsBox(1, 1.5, new b2Vec2(0, 0), 0);
-    var garmonFixDef = new b2FixtureDef();
-    garmonFixDef.set_shape(garmonShape);
-    garmonFixDef.set_density(1.0);
+    // left C-like static body
+    left00shape = createPolygonShape([new b2Vec2(-3, 0), new b2Vec2(-1, 0), new b2Vec2(-1, 1), new b2Vec2(-3, 1)]);
+    ground.CreateFixture(left00shape, 0);
 
-    // This might be set to zero
-    garmonFixDef.set_friction(0.1);
+    left01shape = createPolygonShape([new b2Vec2(-3, 1), new b2Vec2(-2, 1), new b2Vec2(-2, 2), new b2Vec2(-3, 2)]);
+    ground.CreateFixture(left01shape, 0);
 
+    left02shape = createPolygonShape([new b2Vec2(-3, 2), new b2Vec2(-1, 2), new b2Vec2(-1, 3), new b2Vec2(-3, 3)]);
+    ground.CreateFixture(left02shape, 0);
+
+    // right moving body
     var bd = new b2BodyDef();
     bd.set_type(b2_dynamicBody);
-    bd.set_position(new b2Vec2(3, 1.5));
-    var body = world.CreateBody(bd);    
-    body.CreateFixture(garmonFixDef);
+    bd.set_position(new b2Vec2(0, 0));
+    var body = world.CreateBody(bd);
+
+    var right00shape = createPolygonShape([new b2Vec2(3, 1), new b2Vec2(5, 1), new b2Vec2(5, 3), new b2Vec2(3, 3)]);
+    var right00fixDef = new b2FixtureDef();
+    right00fixDef.set_shape(right00shape);
+    right00fixDef.set_density(1.0);
+    right00fixDef.set_friction(0.1);
+
+    body.CreateFixture(right00fixDef);
+
+    var right01shape = createPolygonShape([new b2Vec2(3, 0), new b2Vec2(5, 0), new b2Vec2(5, 1), new b2Vec2(3, 1)]);
+    var right01fixDef = new b2FixtureDef();
+    right01fixDef.set_shape(right01shape);
+    right01fixDef.set_density(10.0);
+    right01fixDef.set_friction(0.1);
+
+    body.CreateFixture(right01fixDef);
+
+    var right02shape = createPolygonShape([new b2Vec2(2, 1.03), new b2Vec2(3, 1.03), new b2Vec2(3, 1.97), new b2Vec2(2, 1.97)]);
+    var right02fixDef = new b2FixtureDef();
+    right02fixDef.set_shape(right02shape);
+    right02fixDef.set_density(1.0);
+    right02fixDef.set_friction(0.1);
+
+    body.CreateFixture(right02fixDef);
+
 }
 
 embox2dTest_garmon.prototype.step = function() {
