@@ -21,12 +21,18 @@ embox2dTest_sanki.prototype.setup = function() {
 
     var sankiShape = new b2PolygonShape();
     sankiShape.SetAsBox(1, 0.5, new b2Vec2(0, 0), 0.3);
+    var sankiFixDef = new b2FixtureDef();
+    sankiFixDef.set_shape(sankiShape);
+    sankiFixDef.set_density(1.0);
+
+    // This might be set to zero
+    sankiFixDef.set_friction(0.1);
 
     var bd = new b2BodyDef();
     bd.set_type(b2_dynamicBody);
     bd.set_position(new b2Vec2(6, 4.23));
     var body = world.CreateBody(bd);    
-    body.CreateFixture(sankiShape, 1.0);
+    body.CreateFixture(sankiFixDef);
 }
 
 embox2dTest_sanki.prototype.step = function() {
