@@ -55,7 +55,7 @@ embox2dTest_garmon.prototype.setup = function() {
     right02fixDef.set_friction(0.1);
 
     body.CreateFixture(right02fixDef);
-
+    body.ResetMassData();
 }
 
 embox2dTest_garmon.prototype.step = function() {
