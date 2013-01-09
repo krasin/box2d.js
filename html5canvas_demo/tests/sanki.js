@@ -4,7 +4,7 @@ var embox2dTest_sanki = function() {
 embox2dTest_sanki.prototype.setNiceViewCenter = function() {
     //called once when the user changes to this test from another test
     PTM = 26;
-    setViewCenterWorld( new b2Vec2(0,8), true );
+    setViewCenterWorld(new b2Vec2(0,8), true);
 }
 
 embox2dTest_sanki.prototype.setup = function() {
