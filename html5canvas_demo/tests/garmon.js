@@ -30,7 +30,7 @@ embox2dTest_garmon.prototype.setup = function() {
     var bd = new b2BodyDef();
     bd.set_type(b2_kinematicBody);
     bd.set_position(new b2Vec2(0, 0));
-    var body = world.CreateBody(bd);
+    this.rightBody = world.CreateBody(bd);
 
     var right00shape = createPolygonShape([new b2Vec2(3, 1), new b2Vec2(5, 1), new b2Vec2(5, 3), new b2Vec2(3, 3)]);
     var right00fixDef = new b2FixtureDef();
@@ -38,7 +38,7 @@ embox2dTest_garmon.prototype.setup = function() {
     right00fixDef.set_density(1.0);
     right00fixDef.set_friction(0.1);
 
-    body.CreateFixture(right00fixDef);
+    this.rightBody.CreateFixture(right00fixDef);
 
     var right01shape = createPolygonShape([new b2Vec2(3, 0), new b2Vec2(5, 0), new b2Vec2(5, 1), new b2Vec2(3, 1)]);
     var right01fixDef = new b2FixtureDef();
@@ -46,7 +46,7 @@ embox2dTest_garmon.prototype.setup = function() {
     right01fixDef.set_density(10.0);
     right01fixDef.set_friction(0.1);
 
-    body.CreateFixture(right01fixDef);
+    this.rightBody.CreateFixture(right01fixDef);
 
     var right02shape = createPolygonShape([new b2Vec2(2, 1.03), new b2Vec2(3, 1.03), new b2Vec2(3, 1.97), new b2Vec2(2, 1.97)]);
     var right02fixDef = new b2FixtureDef();
@@ -54,12 +54,20 @@ embox2dTest_garmon.prototype.setup = function() {
     right02fixDef.set_density(1.0);
     right02fixDef.set_friction(0.1);
 
-    body.CreateFixture(right02fixDef);
-    body.ResetMassData();
-    body.SetLinearVelocity(new b2Vec2(-2, 0));
+    this.rightBody.CreateFixture(right02fixDef);
+    this.rightBody.ResetMassData();
+    this.rightBody.SetLinearVelocity(new b2Vec2(-2, 0));
 }
 
 embox2dTest_garmon.prototype.step = function() {
+    var x = this.rightBody.GetPosition().get_x();
+    console.log(x);
+    if (x < -3.9) {
+	this.rightBody.SetLinearVelocity(new b2Vec2(2, 0));
+    }
+    if (x >= 0) {
+	this.rightBody.SetLinearVelocity(new b2Vec2(-2, 0));
+    }
     //this function will be called at the beginning of every time step
 }
 
