@@ -28,7 +28,7 @@ embox2dTest_garmon.prototype.setup = function() {
 
     // right moving body
     var bd = new b2BodyDef();
-    bd.set_type(b2_dynamicBody);
+    bd.set_type(b2_kinematicBody);
     bd.set_position(new b2Vec2(0, 0));
     var body = world.CreateBody(bd);
 
@@ -56,6 +56,7 @@ embox2dTest_garmon.prototype.setup = function() {
 
     body.CreateFixture(right02fixDef);
     body.ResetMassData();
+    body.SetLinearVelocity(new b2Vec2(-2, 0));
 }
 
 embox2dTest_garmon.prototype.step = function() {
