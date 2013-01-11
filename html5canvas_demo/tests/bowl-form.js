@@ -91,6 +91,10 @@ embox2dTest_bowl_form.prototype.setup = function() {
     this.plate.CreateFixture(createPolygonShape([new b2Vec2(0, 1), new b2Vec2(1, 1), new b2Vec2(1, 8), new b2Vec2(0, 8)]), 0);
     this.plate.CreateFixture(createPolygonShape([new b2Vec2(0, -8), new b2Vec2(1, -8), new b2Vec2(1, -1), new b2Vec2(0, -1)]), 0);
 
+
+    // movable cavity plate
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(7, -0.98), new b2Vec2(9.7, -0.98), new b2Vec2(9.7, 0.98), new b2Vec2(7, 0.98)]), 0);
+
     // leader pin
     this.plate.CreateFixture(createPolygonShape([new b2Vec2(1, 7), new b2Vec2(6, 7), new b2Vec2(6, 8), new b2Vec2(1, 8)]), 0);
     this.plate.CreateFixture(createPolygonShape([new b2Vec2(1, -8), new b2Vec2(6, -8), new b2Vec2(6, -7), new b2Vec2(1, -7)]), 0);
