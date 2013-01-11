@@ -6,7 +6,7 @@ var embox2dTest_bowl_form = function() {
 embox2dTest_bowl_form.prototype.setNiceViewCenter = function() {
     //called once when the user changes to this test from another test
     PTM = 26;
-    setViewCenterWorld(new b2Vec2(0,5), true);
+    setViewCenterWorld(new b2Vec2(0,3), true);
 }
 
 embox2dTest_bowl_form.prototype.setup = function() {
@@ -15,7 +15,7 @@ embox2dTest_bowl_form.prototype.setup = function() {
     // ground
     var ground = world.CreateBody(new b2BodyDef());    
     var shape = new b2EdgeShape();
-    shape.Set(new b2Vec2(-40.0, -4.0), new b2Vec2(40.0, -4.0));
+    shape.Set(new b2Vec2(-40.0, -6.0), new b2Vec2(40.0, -6.0));
     ground.CreateFixture(shape, 0.0);
 
     // left fixed plate
