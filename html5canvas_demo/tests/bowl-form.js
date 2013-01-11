@@ -36,10 +36,27 @@ embox2dTest_bowl_form.prototype.setup = function() {
     ground.CreateFixture(createPolygonShape([new b2Vec2(7.2, 5.15), new b2Vec2(13, 5.15), new b2Vec2(13, 6), new b2Vec2(8, 6),
 					     new b2Vec2(7.6, 5.89), new b2Vec2(7.43, 5.77), new b2Vec2(7.31, 5.6)]), 0);
 
+    // movable clamping plate
+    var bd = new b2BodyDef();
+    bd.set_type(b2_kinematicBody);
+    bd.set_position(new b2Vec2(-6, 5));
+    this.plate = world.CreateBody(bd);
+
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(-1, 1), new b2Vec2(0, 1), new b2Vec2(0, 6), new b2Vec2(-1, 6)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(-1, -6), new b2Vec2(0, -6), new b2Vec2(0, -1), new b2Vec2(-1, -1)]), 0);
 
 }
 
 embox2dTest_bowl_form.prototype.step = function() {
     //this function will be called at the beginning of every time step
+    var x = this.plate.GetPosition().get_x();
+    console.log(x);
+    if (x <= -6) {
+	this.plate.SetLinearVelocity(new b2Vec2(2, 0));
+    }
+    if (x >= -2) {
+	this.plate.SetLinearVelocity(new b2Vec2(-2, 0));
+    }
+
 }
 
