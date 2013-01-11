@@ -14,6 +14,10 @@ function drawAxes(ctx) {
 
 function setColorFromDebugDrawCallback(color) {            
     var col = Box2D.wrapPointer(color, b2Color);
+    setColorInternal(col);
+}
+
+function setColorInternal(col) {
     var red = (col.get_r() * 255)|0;
     var green = (col.get_g() * 255)|0;
     var blue = (col.get_b() * 255)|0;
@@ -96,7 +100,7 @@ function getCanvasDebugDraw() {
     Box2D.customizeVTable(debugDraw, [{
     original: Box2D.b2Draw.prototype.DrawPolygon,
     replacement:
-        function(ths, vertices, vertexCount, color) {                    
+        function(ths, vertices, vertexCount, color) {
             setColorFromDebugDrawCallback(color);
             drawPolygon(vertices, vertexCount, false);                    
         }
@@ -105,8 +109,17 @@ function getCanvasDebugDraw() {
     Box2D.customizeVTable(debugDraw, [{
     original: Box2D.b2Draw.prototype.DrawSolidPolygon,
     replacement:
-        function(ths, vertices, vertexCount, color) {                    
-            setColorFromDebugDrawCallback(color);
+        function(ths, vertices, vertexCount, color) {
+	    var ver = Box2D.wrapPointer(vertices, b2Vec2);
+	    var x = ver.get_x();
+	    var frac = (Math.abs(x)+0.00001) % 1;
+	    var ind = (frac * 1000) % 1;
+
+	    if (ind >= 0.1 && ind < 0.2 && color != 680) {
+		setColorInternal(new b2Color(1, 0, 0));
+	    } else {
+		setColorFromDebugDrawCallback(color);
+	    }
             drawPolygon(vertices, vertexCount, true);                    
         }
     }]);
