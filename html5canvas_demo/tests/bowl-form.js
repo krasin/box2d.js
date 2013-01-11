@@ -128,8 +128,8 @@ embox2dTest_bowl_form.prototype.setup = function() {
     var ejectShape = createPolygonShape([new b2Vec2(-2, -6.99), new b2Vec2(0, -6.99), new b2Vec2(0, 6.99), new b2Vec2(-2, 6.99)]);
     var ejectFixDef = new b2FixtureDef();
     ejectFixDef.set_shape(ejectShape);
-    ejectFixDef.set_density(10.0);
-    ejectFixDef.set_friction(10);
+    ejectFixDef.set_density(1.0);
+    ejectFixDef.set_friction(3);
     eject.CreateFixture(ejectFixDef);
 
     // Return pins
