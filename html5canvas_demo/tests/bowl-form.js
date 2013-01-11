@@ -151,7 +151,6 @@ embox2dTest_bowl_form.prototype.step = function() {
 	this.plate.SetLinearVelocity(new b2Vec2(0, 0));
 	this.pauseUntilStep = this.stepCount + 120;
     }
-    console.log(this.pauseUntilStep, this.stepCount);
     if (this.pauseUntilStep == this.stepCount) {
 	this.plate.SetLinearVelocity(new b2Vec2(-2, 0));
     }

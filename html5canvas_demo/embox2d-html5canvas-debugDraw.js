@@ -115,13 +115,12 @@ function getCanvasDebugDraw() {
 	    var frac = (Math.abs(x)+0.00001) % 1;
 	    var ind = (frac * 1000) % 1;
 
-//	    if (color == 680 || color == 2144 || color == 4224 || color == 2120 || color == 2176) {
-	    if (color != 2172 && color != 2236 && color != 2300) {
+	    var col = Box2D.wrapPointer(color, b2Color);
+
+	    if (Math.abs(col.get_r()-0.5) > 0.01) {
 		setColorFromDebugDrawCallback(color);
 	    } else if (ind >= 0.1 && ind < 0.2) {
-		if (color != 2172 && color != 2236 && color != 2300) {
-		    console.log(color);
-		}
+//		console.log(col.get_r(), col.get_g(), col.get_b());
 		setColorInternal(new b2Color(1, 0, 0));
 	    } else if (ind >= 0.2 && ind < 0.3) {
 		setColorInternal(new b2Color(1, 1, 0));
