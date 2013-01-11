@@ -116,10 +116,12 @@ function getCanvasDebugDraw() {
 	    var ind = (frac * 1000) % 1;
 
 //	    if (color == 680 || color == 2144 || color == 4224 || color == 2120 || color == 2176) {
-	    if (color != 2172) {
+	    if (color != 2172 && color != 2236) {
 		setColorFromDebugDrawCallback(color);
 	    } else if (ind >= 0.1 && ind < 0.2) {
-		console.log(color);
+		if (color != 2172 && color != 2236) {
+		    console.log(color);
+		}
 		setColorInternal(new b2Color(1, 0, 0));
 	    } else if (ind >= 0.2 && ind < 0.3) {
 		setColorInternal(new b2Color(1, 1, 0));
