@@ -39,8 +39,10 @@ embox2dTest_bowl_form.prototype.setup = function() {
     // Insert
     ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 4), new b2Vec2(7.2, 4), new b2Vec2(7.2, 4.85), new b2Vec2(6, 4.75)]), 0);    
     ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 5.25), new b2Vec2(7.2, 5.15), new b2Vec2(7.2, 6), new b2Vec2(6, 6)]), 0);
-    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 3), new b2Vec2(10, 3), new b2Vec2(10, 3.5), new b2Vec2(7.2, 4), new b2Vec2(6, 4)]), 0);    
-    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 6), new b2Vec2(7.2, 6), new b2Vec2(10, 6.5), new b2Vec2(10, 7), new b2Vec2(6, 7)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 3), new b2Vec2(10, 3), new b2Vec2(10, 3.5),
+					     new b2Vec2(7.2, 4), new b2Vec2(6, 4)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 6), new b2Vec2(7.2, 6), new b2Vec2(10, 6.5),
+					     new b2Vec2(10, 7), new b2Vec2(6, 7)]), 0);
 
     // Fixed cavity plate
     ground.CreateFixture(createPolygonShape([new b2Vec2(7.0002, 7), new b2Vec2(10, 7), new b2Vec2(10, 13), new b2Vec2(7, 13)]), 0);    
