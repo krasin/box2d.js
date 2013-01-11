@@ -48,10 +48,33 @@ embox2dTest_bowl_form.prototype.setup = function() {
     ground.CreateFixture(createPolygonShape([new b2Vec2(6.0002, 7), new b2Vec2(9, 7), new b2Vec2(9, 12), new b2Vec2(6, 12)]), 0);    
     ground.CreateFixture(createPolygonShape([new b2Vec2(6.0002, -2), new b2Vec2(9, -2), new b2Vec2(9, 3), new b2Vec2(6, 3)]), 0);    
 
+    // 2 quarter ellipse parts of fixed cavity plate
+    var left = 3;
+    var ax = 3;
+    var ay = 2;
+    var n = 20;
+    var yf = function(x) {
+	var val = 1 - x*x / ax / ax;
+	console.log("x=", x, "val=", val);
+	return ay*Math.sqrt(val);
+    }
+    for (var i = 0; i < n; i++) {
+	var xc = (i / n) * ax;
+	var yc = yf(xc);
+	var xn = ((i+1) / n) * ax;
+	var yn = yf(xn);
+	console.log(xc,yc,xn,yn);
+	ground.CreateFixture(createPolygonShape([new b2Vec2(left+xc+0.0002, 7+yc), new b2Vec2(left+xn, 7+yn),
+						 new b2Vec2(left+xn, 12), new b2Vec2(left+xc, 12)]), 0);    
+	ground.CreateFixture(createPolygonShape([new b2Vec2(left+xc+0.0002, -2), new b2Vec2(left+xn, -2),
+						 new b2Vec2(left+xn, 3-yn), new b2Vec2(left+xc, 3-yc)]), 0);    
+
+    }
+
     // movable clamping plate
     var bd = new b2BodyDef();
     bd.set_type(b2_kinematicBody);
-    bd.set_position(new b2Vec2(-6, 5));
+    bd.set_position(new b2Vec2(-8, 5));
     this.plate = world.CreateBody(bd);
 
     this.plate.CreateFixture(createPolygonShape([new b2Vec2(-1, 1), new b2Vec2(0, 1), new b2Vec2(0, 7), new b2Vec2(-1, 7)]), 0);
@@ -68,10 +91,10 @@ embox2dTest_bowl_form.prototype.setup = function() {
 embox2dTest_bowl_form.prototype.step = function() {
     //this function will be called at the beginning of every time step
     var x = this.plate.GetPosition().get_x();
-    if (x <= -6) {
+    if (x <= -8) {
 	this.plate.SetLinearVelocity(new b2Vec2(2, 0));
     }
-    if (x >= -2) {
+    if (x >= -4) {
 	this.plate.SetLinearVelocity(new b2Vec2(-2, 0));
     }
 
