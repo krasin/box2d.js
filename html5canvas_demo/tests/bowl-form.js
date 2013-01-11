@@ -111,6 +111,10 @@ embox2dTest_bowl_form.prototype.setup = function() {
     // Return pins
     eject.CreateFixture(createPolygonShape([new b2Vec2(0, 5), new b2Vec2(7, 5), new b2Vec2(7, 6), new b2Vec2(0, 6)]), 0);
     eject.CreateFixture(createPolygonShape([new b2Vec2(0, -6), new b2Vec2(7, -6), new b2Vec2(7, -5), new b2Vec2(0, -5)]), 0);
+
+    // Ejector pins
+    eject.CreateFixture(createPolygonShape([new b2Vec2(0, 1), new b2Vec2(5.7, 1), new b2Vec2(5.7, 1.5), new b2Vec2(0, 1.5)]), 0);
+    eject.CreateFixture(createPolygonShape([new b2Vec2(0, -1.5), new b2Vec2(5.7, -1.5), new b2Vec2(5.7, -1), new b2Vec2(0, -1)]), 0);
 }
 
 embox2dTest_bowl_form.prototype.step = function() {
