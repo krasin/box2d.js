@@ -42,9 +42,15 @@ embox2dTest_bowl_form.prototype.setup = function() {
     bd.set_position(new b2Vec2(-6, 5));
     this.plate = world.CreateBody(bd);
 
-    this.plate.CreateFixture(createPolygonShape([new b2Vec2(-1, 1), new b2Vec2(0, 1), new b2Vec2(0, 6), new b2Vec2(-1, 6)]), 0);
-    this.plate.CreateFixture(createPolygonShape([new b2Vec2(-1, -6), new b2Vec2(0, -6), new b2Vec2(0, -1), new b2Vec2(-1, -1)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(-1, 1), new b2Vec2(0, 1), new b2Vec2(0, 7), new b2Vec2(-1, 7)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(-1, -7), new b2Vec2(0, -7), new b2Vec2(0, -1), new b2Vec2(-1, -1)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(0, 1), new b2Vec2(1, 1), new b2Vec2(1, 5.5), new b2Vec2(0, 5.5)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(0, -5.5), new b2Vec2(1, -5.5), new b2Vec2(1, -1), new b2Vec2(0, -1)]), 0);
 
+    // leader pin
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(1, 4), new b2Vec2(5, 4), new b2Vec2(5, 5), new b2Vec2(1, 5)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(1, -5), new b2Vec2(5, -5), new b2Vec2(5, -4), new b2Vec2(1, -4)]), 0);
+    
 }
 
 embox2dTest_bowl_form.prototype.step = function() {
