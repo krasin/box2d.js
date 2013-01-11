@@ -1,6 +1,8 @@
 
 var embox2dTest_bowl_form = function() {
     //constructor
+    this.stepCount = 0;
+    this.pauseUntilStep = -1;
 }
 
 embox2dTest_bowl_form.prototype.setNiceViewCenter = function() {
@@ -117,9 +119,14 @@ embox2dTest_bowl_form.prototype.step = function() {
     if (x <= -11.9) {
 	this.plate.SetLinearVelocity(new b2Vec2(2, 0));
     }
-    if (x >= -4) {
+    if (x >= -4 && this.plate.GetLinearVelocity().get_x() >= -0.01 && this.pauseUntilStep < this.stepCount) {	
+	this.plate.SetLinearVelocity(new b2Vec2(0, 0));
+	this.pauseUntilStep = this.stepCount + 120;
+    }
+    console.log(this.pauseUntilStep, this.stepCount);
+    if (this.pauseUntilStep == this.stepCount) {
 	this.plate.SetLinearVelocity(new b2Vec2(-2, 0));
     }
-
+    this.stepCount++;
 }
 
