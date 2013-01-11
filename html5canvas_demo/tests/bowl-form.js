@@ -5,8 +5,8 @@ var embox2dTest_bowl_form = function() {
 
 embox2dTest_bowl_form.prototype.setNiceViewCenter = function() {
     //called once when the user changes to this test from another test
-    PTM = 26;
-    setViewCenterWorld(new b2Vec2(0,3), true);
+    PTM = 38;
+    setViewCenterWorld(new b2Vec2(-5,0), true);
 }
 
 embox2dTest_bowl_form.prototype.setup = function() {
@@ -19,14 +19,14 @@ embox2dTest_bowl_form.prototype.setup = function() {
     ground.CreateFixture(shape, 0.0);
 
     // left fixed plate
-    ground.CreateFixture(createPolygonShape([new b2Vec2(-13, -4), new b2Vec2(-10, -4), new b2Vec2(-10, 12), new b2Vec2(-13, 12)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(-13, -4), new b2Vec2(-10, -4), new b2Vec2(-10, 14), new b2Vec2(-13, 14)]), 0);
 
     // left fixed support
     ground.CreateFixture(createPolygonShape([new b2Vec2(-10, 5.5), new b2Vec2(-10, 4.5), new b2Vec2(-3, 4.5), new b2Vec2(-3, 5.5)]), 0);
 
     // right fixed plate (fixed clamping plate)
     ground.CreateFixture(createPolygonShape([new b2Vec2(10, -4), new b2Vec2(13, -4), new b2Vec2(13, 2), new b2Vec2(10, 2)]), 0);
-    ground.CreateFixture(createPolygonShape([new b2Vec2(10, 8), new b2Vec2(13, 8), new b2Vec2(13, 12), new b2Vec2(10, 12)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(10, 8), new b2Vec2(13, 8), new b2Vec2(13, 14), new b2Vec2(10, 14)]), 0);
 
     // sprue bushing
     ground.CreateFixture(createPolygonShape([new b2Vec2(9, 2), new b2Vec2(13, 2), new b2Vec2(13, 4), new b2Vec2(9, 4)]), 0);
