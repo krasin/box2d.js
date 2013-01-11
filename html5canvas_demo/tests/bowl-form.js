@@ -42,6 +42,12 @@ embox2dTest_bowl_form.prototype.setup = function() {
     ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 3), new b2Vec2(9, 3), new b2Vec2(9, 3.5), new b2Vec2(7.2, 4), new b2Vec2(6, 4)]), 0);    
     ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 6), new b2Vec2(7.2, 6), new b2Vec2(9, 6.5), new b2Vec2(9, 7), new b2Vec2(6, 7)]), 0);
 
+    // Fixed cavity plate
+    ground.CreateFixture(createPolygonShape([new b2Vec2(9.0002, 8), new b2Vec2(10, 8), new b2Vec2(10, 12), new b2Vec2(9, 12)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(9.0002, -2), new b2Vec2(10, -2), new b2Vec2(10, 2), new b2Vec2(9, 2)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0002, 7), new b2Vec2(9, 7), new b2Vec2(9, 12), new b2Vec2(6, 12)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0002, -2), new b2Vec2(9, -2), new b2Vec2(9, 3), new b2Vec2(6, 3)]), 0);    
+
     // movable clamping plate
     var bd = new b2BodyDef();
     bd.set_type(b2_kinematicBody);
