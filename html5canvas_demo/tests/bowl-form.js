@@ -72,12 +72,10 @@ embox2dTest_bowl_form.prototype.setup = function() {
 	var yc = yf(xc);
 	var xn = ((i+1) / n) * ax;
 	var yn = yf(xn);
-	console.log(xc,yc,xn,yn);
 	ground.CreateFixture(createPolygonShape([new b2Vec2(left+xc+0.0002, 7+yc), new b2Vec2(left+xn, 7+yn),
 						 new b2Vec2(left+xn, 9.5), new b2Vec2(left+xc, 9.5)]), 0);    
 	ground.CreateFixture(createPolygonShape([new b2Vec2(left+xc+0.0002, 0.5), new b2Vec2(left+xn, 0.5),
 						 new b2Vec2(left+xn, 3-yn), new b2Vec2(left+xc, 3-yc)]), 0);    
-
     }
 
     // movable clamping plate
@@ -93,7 +91,29 @@ embox2dTest_bowl_form.prototype.setup = function() {
 
 
     // movable cavity plate
-    this.plate.CreateFixture(createPolygonShape([new b2Vec2(7, -0.98), new b2Vec2(9.7, -0.98), new b2Vec2(9.7, 0.98), new b2Vec2(7, 0.98)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(6, -0.98), new b2Vec2(9.7, -0.98), new b2Vec2(9.7, 0.98), new b2Vec2(6, 0.98)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(6, 1.53), new b2Vec2(9.7, 1.53), new b2Vec2(9.7, 1.9), new b2Vec2(6, 1.9)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(6, -1.9), new b2Vec2(9.7, -1.9), new b2Vec2(9.7, -1.53), new b2Vec2(6, -1.53)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(6, 1.9), new b2Vec2(7, 1.9), new b2Vec2(7, 4.97), new b2Vec2(6, 4.97)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(6, -4.97), new b2Vec2(7, -4.97), new b2Vec2(7, -1.9), new b2Vec2(6, -1.9)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(6, 6.03), new b2Vec2(7, 6.03), new b2Vec2(7, 8), new b2Vec2(6, 8)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(6, -8), new b2Vec2(7, -8), new b2Vec2(7, -6.03), new b2Vec2(6, -6.03)]), 0);
+
+    // movable cavity plate quarter ellipses
+    ax = 2.7;
+    ay = 1.7;
+    left = 7
+    for (var i = 0; i < n; i++) {
+	var xc = (i / n) * ax;
+	var yc = yf(xc);
+	var xn = ((i+1) / n) * ax;
+	var yn = yf(xn);
+	console.log(xc,yc,xn,yn);
+	this.plate.CreateFixture(createPolygonShape([new b2Vec2(left+xc, 1.9), new b2Vec2(left+xn, 1.9),
+						     new b2Vec2(left+xn, 1.9+yn+0.001), new b2Vec2(left+xc, 1.9+yc)]), 0);
+	this.plate.CreateFixture(createPolygonShape([new b2Vec2(left+xc, -1.9-yc-0.001), new b2Vec2(left+xn, -1.9-yn-0.001),
+						     new b2Vec2(left+xn, -1.9), new b2Vec2(left+xc, -1.9)]), 0);
+    }
 
     // leader pin
     this.plate.CreateFixture(createPolygonShape([new b2Vec2(1, 7), new b2Vec2(6, 7), new b2Vec2(6, 8), new b2Vec2(1, 8)]), 0);
