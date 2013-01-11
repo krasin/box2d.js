@@ -19,10 +19,10 @@ embox2dTest_bowl_form.prototype.setup = function() {
     ground.CreateFixture(shape, 0.0);
 
     // left fixed plate
-    ground.CreateFixture(createPolygonShape([new b2Vec2(-13, -4), new b2Vec2(-10, -4), new b2Vec2(-10, 14), new b2Vec2(-13, 14)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(-13, -4), new b2Vec2(-12, -4), new b2Vec2(-12, 14), new b2Vec2(-13, 14)]), 0);
 
     // left fixed support
-    ground.CreateFixture(createPolygonShape([new b2Vec2(-10, 5.5), new b2Vec2(-10, 4.5), new b2Vec2(-3, 4.5), new b2Vec2(-3, 5.5)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(-12, 5.5), new b2Vec2(-12, 4.5), new b2Vec2(-6, 4.5), new b2Vec2(-6, 5.5)]), 0);
 
     // right fixed plate (fixed clamping plate)
     ground.CreateFixture(createPolygonShape([new b2Vec2(10, -4), new b2Vec2(13, -4), new b2Vec2(13, 2), new b2Vec2(10, 2)]), 0);
@@ -74,7 +74,7 @@ embox2dTest_bowl_form.prototype.setup = function() {
     // movable clamping plate
     var bd = new b2BodyDef();
     bd.set_type(b2_kinematicBody);
-    bd.set_position(new b2Vec2(-8, 5));
+    bd.set_position(new b2Vec2(-4, 5));
     this.plate = world.CreateBody(bd);
 
     this.plate.CreateFixture(createPolygonShape([new b2Vec2(-1, 1), new b2Vec2(0, 1), new b2Vec2(0, 9), new b2Vec2(-1, 9)]), 0);
@@ -83,15 +83,27 @@ embox2dTest_bowl_form.prototype.setup = function() {
     this.plate.CreateFixture(createPolygonShape([new b2Vec2(0, -8), new b2Vec2(1, -8), new b2Vec2(1, -1), new b2Vec2(0, -1)]), 0);
 
     // leader pin
-    this.plate.CreateFixture(createPolygonShape([new b2Vec2(1, 7), new b2Vec2(5, 7), new b2Vec2(5, 8), new b2Vec2(1, 8)]), 0);
-    this.plate.CreateFixture(createPolygonShape([new b2Vec2(1, -8), new b2Vec2(5, -8), new b2Vec2(5, -7), new b2Vec2(1, -7)]), 0);
-    
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(1, 7), new b2Vec2(6, 7), new b2Vec2(6, 8), new b2Vec2(1, 8)]), 0);
+    this.plate.CreateFixture(createPolygonShape([new b2Vec2(1, -8), new b2Vec2(6, -8), new b2Vec2(6, -7), new b2Vec2(1, -7)]), 0);
+
+    // ejector retainer plate
+    var ebd = new b2BodyDef();
+    ebd.set_type(b2_dynamicBody);
+    ebd.set_position(new b2Vec2(-2.5, 5));
+    var eject = world.CreateBody(ebd);
+
+    var ejectShape = createPolygonShape([new b2Vec2(-2, -6.99), new b2Vec2(0, -6.99), new b2Vec2(0, 6.99), new b2Vec2(-2, 6.99)]);
+    var ejectFixDef = new b2FixtureDef();
+    ejectFixDef.set_shape(ejectShape);
+    ejectFixDef.set_density(10.0);
+    ejectFixDef.set_friction(10);
+    eject.CreateFixture(ejectFixDef);
 }
 
 embox2dTest_bowl_form.prototype.step = function() {
     //this function will be called at the beginning of every time step
     var x = this.plate.GetPosition().get_x();
-    if (x <= -8) {
+    if (x <= -9) {
 	this.plate.SetLinearVelocity(new b2Vec2(2, 0));
     }
     if (x >= -4) {
