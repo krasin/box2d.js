@@ -50,7 +50,6 @@ embox2dTest_bowl_form.prototype.setup = function() {
 embox2dTest_bowl_form.prototype.step = function() {
     //this function will be called at the beginning of every time step
     var x = this.plate.GetPosition().get_x();
-    console.log(x);
     if (x <= -6) {
 	this.plate.SetLinearVelocity(new b2Vec2(2, 0));
     }
