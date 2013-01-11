@@ -31,9 +31,9 @@ embox2dTest_bowl_form.prototype.setup = function() {
     // sprue bushing
     ground.CreateFixture(createPolygonShape([new b2Vec2(9, 3), new b2Vec2(13, 3), new b2Vec2(13, 4), new b2Vec2(9, 4)]), 0);
     ground.CreateFixture(createPolygonShape([new b2Vec2(9, 6), new b2Vec2(13, 6), new b2Vec2(13, 7), new b2Vec2(9, 7)]), 0);
-    ground.CreateFixture(createPolygonShape([new b2Vec2(8, 4), new b2Vec2(13, 4), new b2Vec2(13, 4.8), new b2Vec2(7.2, 4.8),
+    ground.CreateFixture(createPolygonShape([new b2Vec2(8, 4), new b2Vec2(13, 4), new b2Vec2(13, 4.85), new b2Vec2(7.2, 4.85),
 					     new b2Vec2(7.31, 4.4), new b2Vec2(7.43, 4.23), new b2Vec2(7.6, 4.11)]), 0);
-    ground.CreateFixture(createPolygonShape([new b2Vec2(7.2, 5.2), new b2Vec2(13, 5.2), new b2Vec2(13, 6), new b2Vec2(8, 6),
+    ground.CreateFixture(createPolygonShape([new b2Vec2(7.2, 5.15), new b2Vec2(13, 5.15), new b2Vec2(13, 6), new b2Vec2(8, 6),
 					     new b2Vec2(7.6, 5.89), new b2Vec2(7.43, 5.77), new b2Vec2(7.31, 5.6)]), 0);
 
 
