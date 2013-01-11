@@ -115,7 +115,8 @@ function getCanvasDebugDraw() {
 	    var frac = (Math.abs(x)+0.00001) % 1;
 	    var ind = (frac * 1000) % 1;
 
-	    if (color == 680 || color == 2144 || color == 4224 || color == 2120) {
+//	    if (color == 680 || color == 2144 || color == 4224 || color == 2120 || color == 2176) {
+	    if (color != 2172) {
 		setColorFromDebugDrawCallback(color);
 	    } else if (ind >= 0.1 && ind < 0.2) {
 		console.log(color);
