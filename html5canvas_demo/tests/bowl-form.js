@@ -25,12 +25,12 @@ embox2dTest_bowl_form.prototype.setup = function() {
     ground.CreateFixture(createPolygonShape([new b2Vec2(-12, 5.8), new b2Vec2(-12, 4.2), new b2Vec2(-6, 4.2), new b2Vec2(-6, 5.8)]), 0);
 
     // right fixed plate (fixed clamping plate)
-    ground.CreateFixture(createPolygonShape([new b2Vec2(10, -4), new b2Vec2(13, -4), new b2Vec2(13, 2), new b2Vec2(10, 2)]), 0);
-    ground.CreateFixture(createPolygonShape([new b2Vec2(10, 8), new b2Vec2(13, 8), new b2Vec2(13, 14), new b2Vec2(10, 14)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(10, -4), new b2Vec2(13, -4), new b2Vec2(13, 3.7), new b2Vec2(10, 3.7)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(10, 6.3), new b2Vec2(13, 6.3), new b2Vec2(13, 14), new b2Vec2(10, 14)]), 0);
 
     // sprue bushing
-    ground.CreateFixture(createPolygonShape([new b2Vec2(9, 2), new b2Vec2(13, 2), new b2Vec2(13, 4), new b2Vec2(9, 4)]), 0);
-    ground.CreateFixture(createPolygonShape([new b2Vec2(9, 6), new b2Vec2(13, 6), new b2Vec2(13, 8), new b2Vec2(9, 8)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(9, 3.7), new b2Vec2(13, 3.7), new b2Vec2(13, 4), new b2Vec2(9, 4)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(9, 6), new b2Vec2(13, 6), new b2Vec2(13, 6.3), new b2Vec2(9, 6.3)]), 0);
     ground.CreateFixture(createPolygonShape([new b2Vec2(8, 4), new b2Vec2(13, 4), new b2Vec2(13, 4.85), new b2Vec2(7.2, 4.85),
 					     new b2Vec2(7.31, 4.4), new b2Vec2(7.43, 4.23), new b2Vec2(7.6, 4.11)]), 0);
     ground.CreateFixture(createPolygonShape([new b2Vec2(7.2, 5.15), new b2Vec2(13, 5.15), new b2Vec2(13, 6), new b2Vec2(8, 6),
@@ -39,18 +39,18 @@ embox2dTest_bowl_form.prototype.setup = function() {
     // Insert
     ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 4), new b2Vec2(7.2, 4), new b2Vec2(7.2, 4.85), new b2Vec2(6, 4.75)]), 0);    
     ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 5.25), new b2Vec2(7.2, 5.15), new b2Vec2(7.2, 6), new b2Vec2(6, 6)]), 0);
-    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 3), new b2Vec2(9, 3), new b2Vec2(9, 3.5), new b2Vec2(7.2, 4), new b2Vec2(6, 4)]), 0);    
-    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 6), new b2Vec2(7.2, 6), new b2Vec2(9, 6.5), new b2Vec2(9, 7), new b2Vec2(6, 7)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 3), new b2Vec2(10, 3), new b2Vec2(10, 3.5), new b2Vec2(7.2, 4), new b2Vec2(6, 4)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0001, 6), new b2Vec2(7.2, 6), new b2Vec2(10, 6.5), new b2Vec2(10, 7), new b2Vec2(6, 7)]), 0);
 
     // Fixed cavity plate
-    ground.CreateFixture(createPolygonShape([new b2Vec2(9.0002, 8), new b2Vec2(10, 8), new b2Vec2(10, 13), new b2Vec2(9, 13)]), 0);    
-    ground.CreateFixture(createPolygonShape([new b2Vec2(9.0002, -3), new b2Vec2(10, -3), new b2Vec2(10, 2), new b2Vec2(9, 2)]), 0);    
-    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0002, 7), new b2Vec2(9, 7), new b2Vec2(9, 9.5), new b2Vec2(6, 9.5)]), 0);    
-    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0002, 0.5), new b2Vec2(9, 0.5), new b2Vec2(9, 3), new b2Vec2(6, 3)]), 0);    
-    ground.CreateFixture(createPolygonShape([new b2Vec2(3.0002, 11.05), new b2Vec2(9, 11.05), new b2Vec2(9, 13), new b2Vec2(3, 13)]), 0);    
-    ground.CreateFixture(createPolygonShape([new b2Vec2(3.0002, -3), new b2Vec2(9, -3), new b2Vec2(9, -1.05), new b2Vec2(3, -1.05)]), 0);    
-    ground.CreateFixture(createPolygonShape([new b2Vec2(3.0002, 9.5), new b2Vec2(9, 9.5), new b2Vec2(9, 9.95), new b2Vec2(3, 9.95)]), 0);    
-    ground.CreateFixture(createPolygonShape([new b2Vec2(3.0002, 0.05), new b2Vec2(9, 0.05), new b2Vec2(9, 0.5), new b2Vec2(3, 0.5)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(8.0002, 7), new b2Vec2(10, 7), new b2Vec2(10, 13), new b2Vec2(8, 13)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(8.0002, -3), new b2Vec2(10, -3), new b2Vec2(10, 3), new b2Vec2(8, 3)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0002, 7), new b2Vec2(8, 7), new b2Vec2(8, 9.5), new b2Vec2(6, 9.5)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(6.0002, 0.5), new b2Vec2(8, 0.5), new b2Vec2(8, 3), new b2Vec2(6, 3)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(3.0002, 11.05), new b2Vec2(8, 11.05), new b2Vec2(8, 13), new b2Vec2(3, 13)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(3.0002, -3), new b2Vec2(8, -3), new b2Vec2(8, -1.05), new b2Vec2(3, -1.05)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(3.0002, 9.5), new b2Vec2(8, 9.5), new b2Vec2(8, 9.95), new b2Vec2(3, 9.95)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(3.0002, 0.05), new b2Vec2(8, 0.05), new b2Vec2(8, 0.5), new b2Vec2(3, 0.5)]), 0);    
 
 
     // 2 quarter ellipse parts of fixed cavity plate
@@ -105,8 +105,8 @@ embox2dTest_bowl_form.prototype.setup = function() {
     eject.CreateFixture(ejectFixDef);
 
     // Return pins
-    eject.CreateFixture(createPolygonShape([new b2Vec2(0, 5), new b2Vec2(9, 5), new b2Vec2(9, 6), new b2Vec2(0, 6)]), 0);
-    eject.CreateFixture(createPolygonShape([new b2Vec2(0, -6), new b2Vec2(9, -6), new b2Vec2(9, -5), new b2Vec2(0, -5)]), 0);
+    eject.CreateFixture(createPolygonShape([new b2Vec2(0, 5), new b2Vec2(8, 5), new b2Vec2(8, 6), new b2Vec2(0, 6)]), 0);
+    eject.CreateFixture(createPolygonShape([new b2Vec2(0, -6), new b2Vec2(8, -6), new b2Vec2(8, -5), new b2Vec2(0, -5)]), 0);
 }
 
 embox2dTest_bowl_form.prototype.step = function() {
