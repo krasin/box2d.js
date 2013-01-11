@@ -25,16 +25,23 @@ embox2dTest_bowl_form.prototype.setup = function() {
     ground.CreateFixture(createPolygonShape([new b2Vec2(-10, 5.5), new b2Vec2(-10, 4.5), new b2Vec2(-3, 4.5), new b2Vec2(-3, 5.5)]), 0);
 
     // right fixed plate (fixed clamping plate)
-    ground.CreateFixture(createPolygonShape([new b2Vec2(10, -4), new b2Vec2(13, -4), new b2Vec2(13, 3), new b2Vec2(10, 3)]), 0);
-    ground.CreateFixture(createPolygonShape([new b2Vec2(10, 7), new b2Vec2(13, 7), new b2Vec2(13, 12), new b2Vec2(10, 12)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(10, -4), new b2Vec2(13, -4), new b2Vec2(13, 2), new b2Vec2(10, 2)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(10, 8), new b2Vec2(13, 8), new b2Vec2(13, 12), new b2Vec2(10, 12)]), 0);
 
     // sprue bushing
-    ground.CreateFixture(createPolygonShape([new b2Vec2(9, 3), new b2Vec2(13, 3), new b2Vec2(13, 4), new b2Vec2(9, 4)]), 0);
-    ground.CreateFixture(createPolygonShape([new b2Vec2(9, 6), new b2Vec2(13, 6), new b2Vec2(13, 7), new b2Vec2(9, 7)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(9, 2), new b2Vec2(13, 2), new b2Vec2(13, 4), new b2Vec2(9, 4)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(9, 6), new b2Vec2(13, 6), new b2Vec2(13, 8), new b2Vec2(9, 8)]), 0);
     ground.CreateFixture(createPolygonShape([new b2Vec2(8, 4), new b2Vec2(13, 4), new b2Vec2(13, 4.85), new b2Vec2(7.2, 4.85),
 					     new b2Vec2(7.31, 4.4), new b2Vec2(7.43, 4.23), new b2Vec2(7.6, 4.11)]), 0);
     ground.CreateFixture(createPolygonShape([new b2Vec2(7.2, 5.15), new b2Vec2(13, 5.15), new b2Vec2(13, 6), new b2Vec2(8, 6),
 					     new b2Vec2(7.6, 5.89), new b2Vec2(7.43, 5.77), new b2Vec2(7.31, 5.6)]), 0);
+
+
+    // Insert
+    ground.CreateFixture(createPolygonShape([new b2Vec2(6, 4), new b2Vec2(7.2, 4), new b2Vec2(7.2, 4.85), new b2Vec2(6, 4.75)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(6, 5.25), new b2Vec2(7.2, 5.15), new b2Vec2(7.2, 6), new b2Vec2(6, 6)]), 0);
+    ground.CreateFixture(createPolygonShape([new b2Vec2(6, 3), new b2Vec2(9, 3), new b2Vec2(9, 3.5), new b2Vec2(7.2, 4), new b2Vec2(6, 4)]), 0);    
+    ground.CreateFixture(createPolygonShape([new b2Vec2(6, 6), new b2Vec2(7.2, 6), new b2Vec2(9, 6.5), new b2Vec2(9, 7), new b2Vec2(6, 7)]), 0);
 
     // movable clamping plate
     var bd = new b2BodyDef();
